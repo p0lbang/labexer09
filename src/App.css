@@ -19,7 +19,7 @@ form {
     margin: auto;
     text-align: center;
     width: 380px;
-    margin-top: 10px;
+    margin-top: 20px;
 }
 
 .label {
@@ -41,6 +41,7 @@ span.errorMessage {
     overflow-inline: unset;
     padding-left: 5px;
     color: red;
+    margin-top: 12px;
 }
 
 #btnSignUp {
@@ -55,11 +56,15 @@ span.errorMessage {
     color: var(--main-text-color);
 }
 
-input{
+input {
     margin-bottom: 5px;
     color: rgb(213, 209, 204);
     background-color: #1d2021;
     border-radius: 5px;
     padding: 10px;
     border: 1px solid #3d4245;
+}
+
+input:disabled {
+    background-color: gray;
 }

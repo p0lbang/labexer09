@@ -42,22 +42,16 @@ class Form extends React.Component {
   }
 
   formSubmit(e) {
-    e.preventDefault();
     if (!validatePassword(this.state.password)) {
+      e.preventDefault();
       alert("invalid password")
       return;
     }
 
     if (this.state.password !== this.state.repeatpassword) {
+      e.preventDefault();
       alert("passwords does not match");
       return;
-    }
-
-    alert("congrats new player");
-    let inputs = document.getElementsByClassName("input");
-    for (let index = 0; index < inputs.length; index++) {
-      const element = inputs[index];
-      element.value = "";
     }
   }
 
