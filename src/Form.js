@@ -1,5 +1,30 @@
 import React from "react";
 
+const validatePassword = (input1) => {
+  if (input1.length < 8) {
+    return false;
+  }
+
+  let containsNumber = false;
+  let containsUpperCase = false;
+  let containsLowerCase = false;
+
+  for (let i = 0; i < input1.length; i++) {
+    if (parseInt(input1[i])) {
+      containsNumber = true;
+    } else if (input1[i] === input1[i].toUpperCase()) {
+      containsUpperCase = true;
+    } else if (input1[i] === input1[i].toLowerCase()) {
+      containsLowerCase = true;
+    }
+  }
+
+  if (containsNumber && containsUpperCase && containsLowerCase) {
+    return true;
+  }
+  return false;
+};
+
 class Form extends React.Component {
   constructor(props) {
     super(props);
@@ -18,11 +43,17 @@ class Form extends React.Component {
 
   formSubmit(e) {
     e.preventDefault();
-    if(this.state.password === this.state.repeatpassword){
-      alert("parehas")
-    }else{
-      alert("hindi parehas")
+    if(!validatePassword(this.state.password)){
+      alert("invalid password")
+      return;
     }
+
+    if(this.state.password !== this.state.repeatpassword){
+      alert("passwords does not match");
+      return;
+    }
+
+    alert("congrats new player")
   }
 
   inputHandler(e) {
@@ -37,10 +68,29 @@ class Form extends React.Component {
         this.setState({ email: e.target.value });
         break;
       case "password":
+        if(e.target.value===""){
+          document.getElementById("repeatpassword").disabled = true;
+        }else{
+          document.getElementById("repeatpassword").disabled = false;
+        }
+        
         this.setState({ password: e.target.value });
+        
+        if(!validatePassword(e.target.value)){
+          document.getElementById("errorMSGpass").innerHTML = "Password is invalid!";  
+        }else{
+          document.getElementById("errorMSGpass").innerHTML = "";  
+        }
+
         break;
       case "repeatpassword":
         this.setState({ repeatpassword: e.target.value });
+        if(this.state.password !== e.target.value){
+          document.getElementById("errorMSGrepeatpass").innerHTML = "Password does not match!";  
+          return;
+        }else{
+          document.getElementById("errorMSGrepeatpass").innerHTML = "";  
+        }
         break;
     }
   }
@@ -56,46 +106,58 @@ class Form extends React.Component {
         <input
           type="text"
           id="firstname"
-          class="input"
+          className="input"
           value={this.state.firstname}
           onChange={this.inputHandler}
+          required={true}
         />
         <br />
         <label >Lastname:</label>
         <input
           type="text"
           id="lastname"
-          class="input"
+          className="input"
           value={this.state.lastname}
           onChange={this.inputHandler}
+          required={true}
         />
         <br />
         <label >Email:</label>
         <input
           type="email"
           id="email"
-          class="input"
+          className="input"
           value={this.state.email}
           onChange={this.inputHandler}
+          required={true}
         />
         <br />
         <label >Password:</label>
         <input
           type="password"
           id="password"
-          class="input"
+          className="input"
           value={this.state.password}
           onChange={this.inputHandler}
+          required={true}
         />
+        <span id="errorMSGpass" className="errorMessage">
+
+</span>
         <br />
         <label >Confirm Password:</label>
         <input
           type="password"
           id="repeatpassword"
-          class="input"
+          className="input"
           value={this.state.repeatpassword}
           onChange={this.inputHandler}
+          disabled={true}
+          required={true}
         />
+        <span id="errorMSGrepeatpass" className="errorMessage">
+
+        </span>
         <br />
         <input type="submit" value="Sign Up" />
       </form>
