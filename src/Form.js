@@ -166,22 +166,7 @@ class Form extends React.Component {
           <br />
           <input id="btnSignUp" type="submit" value="Sign Up" />
         </form>
-        <div className="Container">
-
-          <div id="output">
-            <span className="label">Firstname:</span> {this.state.firstname}<br />
-
-            <span className="label">Lastname:</span> {this.state.lastname}<br />
-
-            <span className="label">Email:</span> {this.state.email}<br />
-
-            <span className="label">Password:</span> {this.state.password}<br />
-
-            <span className="label">Confirm Password:</span> {this.state.repeatpassword}
-          </div>
-        </div>
       </div>
-
     );
   }
 }

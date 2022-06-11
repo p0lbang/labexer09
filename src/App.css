@@ -43,12 +43,6 @@ span.errorMessage {
     color: red;
 }
 
-#output {
-    margin: auto;
-    text-align: left;
-    width: 380px;
-}
-
 #btnSignUp {
     background-color: var(--icon-selected-color);
     width: 100%;
