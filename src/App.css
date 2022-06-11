@@ -27,7 +27,6 @@ form {
     width: 150px;
     text-align: right;
     margin-right: 5px;
-    margin-bottom: 5px;
 }
 
 .Container {
@@ -60,4 +59,13 @@ span.errorMessage {
     font-weight: bold;
     font-size: 1em;
     color: var(--main-text-color);
+}
+
+input{
+    margin-bottom: 5px;
+    color: rgb(213, 209, 204);
+    background-color: #1d2021;
+    border-radius: 5px;
+    padding: 10px;
+    border: 1px solid #3d4245;
 }
