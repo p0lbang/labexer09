@@ -1,0 +1,63 @@
+:root {
+    --main-text-color: #e4e6eb;
+    --secondary-text-color: #b0b3b8;
+    --icon-bg: rgba(255, 255, 255, 0.1);
+    --icon-color: #e4e6eb;
+    --icon-selected-color: #2374e1;
+    --separator-color: #3a3b3c;
+}
+
+body {
+    color: var(--main-text-color);
+    background-color: #18191a;
+    font-family: Helvetica, Arial, sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+form {
+    margin: auto;
+    text-align: center;
+    width: 380px;
+    margin-top: 10px;
+}
+
+.label {
+    display: inline-block;
+    width: 150px;
+    text-align: right;
+    margin-right: 5px;
+    margin-bottom: 5px;
+}
+
+.Container {
+    width: 100%;
+    text-align: center;
+}
+
+span.errorMessage {
+    display: inline-block;
+    position: absolute;
+    overflow-x: clip;
+    overflow-inline: unset;
+    padding-left: 5px;
+    color: red;
+}
+
+#output {
+    margin: auto;
+    text-align: left;
+    width: 380px;
+}
+
+#btnSignUp {
+    background-color: var(--icon-selected-color);
+    width: 100%;
+    height: 36px;
+    border-style: none;
+    border-radius: 5px;
+    font-family: inherit;
+    font-weight: bold;
+    font-size: 1em;
+    color: var(--main-text-color);
+}

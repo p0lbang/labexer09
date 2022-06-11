@@ -1,8 +1,9 @@
 import Form from "./Form";
+import "./App.css";
 
 function App() {
   return (
-    <div>
+    <div className="Container">
       <Form />
     </div>
   );
